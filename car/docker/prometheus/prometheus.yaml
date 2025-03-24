@@ -1,0 +1,7 @@
+scrape_configs:
+  - job_name: 'sample_monitoring'               # Название задачи по сканированию
+    scrape_interval: 5s                         # Интервал, с которым prometheus запрашивает метрики от сервисов
+    metrics_path: '/actuator/prometheus'        # Эндпоинт, по которому запрашиваются метрики
+    static_configs:
+      - targets:
+          - host.docker.internal:8080             # Сервисы, с которых запрашиваются метрики

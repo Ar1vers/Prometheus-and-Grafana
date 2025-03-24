@@ -1,0 +1,35 @@
+services:
+  spring_app:
+    image: maven:3.8.5-openjdk-17
+    container_name: spring_app
+    volumes:
+      - C:/Users/chern/IdeaProjects/car-service/car:/app
+    working_dir: /app
+    command: mvn spring-boot:run
+    ports:
+      - '8080:8080'
+    networks:
+      - monitoring
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yaml'
+    networks:
+      - monitoring
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./grafana/grafana_data:/var/lib/grafana:rw
+    networks:
+      - monitoring
+networks:
+  monitoring:
+    driver: bridge
