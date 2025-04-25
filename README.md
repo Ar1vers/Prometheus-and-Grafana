@@ -36,8 +36,8 @@ The application scales horizontally by distributing data across multiple databas
 - **Scalability**: Easily add new shards as the application grows.
 - **Fault Isolation**: Issues in one shard do not affect others.
 - **Comprehensive Visualizations**: Grafana dashboards provide in-depth insights into system health.
-##Prometheus
+# Prometheus
 ![image](https://github.com/user-attachments/assets/f8716b2b-f3f9-40da-92cd-2ff8b8677fc5)
 
-##Grafana
+# Grafana
 ![image](https://github.com/user-attachments/assets/1f840551-29cc-49cd-a939-586c9ab00535)
